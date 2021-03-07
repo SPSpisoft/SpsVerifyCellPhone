@@ -57,6 +57,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
     private OnRegisterListener mOnRegisterClickListener;
     private boolean mCheckCellphone = true;
     private int mVerifyCodeLength;
+    private OnRegisterCompletedListener mOnRegisterCompletedListener;
 
     public VerifyPhoneNumber(Context context) {
         super(context);
@@ -412,6 +413,8 @@ public class VerifyPhoneNumber extends RelativeLayout {
                 vIconSendCode.setImageResource(R.drawable.ic_baseline_how_to_reg_24);
                 vlySetNumber.setVisibility(GONE);
                 vlyVerify.setVisibility(VISIBLE);
+
+                postDelayed(setCompleted, 2000);
                 break;
             case 9: //ExpireVerifyCode
                 vTxtDescription.setText(mTextMode_9);
@@ -425,6 +428,13 @@ public class VerifyPhoneNumber extends RelativeLayout {
                 break;
         }
     }
+
+    private final Runnable setCompleted = new Runnable() {
+        @Override
+        public void run() {
+            if(mOnRegisterCompletedListener != null) mOnRegisterCompletedListener.onEvent();
+        }
+    };
 
     public VerifyPhoneNumber setVerifyTime(int verifyTimeSecond){
         this.mVerifyTime = verifyTimeSecond;
@@ -445,5 +455,13 @@ public class VerifyPhoneNumber extends RelativeLayout {
 
     public void SetOnRegisterListener(OnRegisterListener eventListener) {
         mOnRegisterClickListener = eventListener;
+    }
+
+    public interface OnRegisterCompletedListener {
+        void onEvent();
+    }
+
+    public void SetOnRegisterCompletedListener(OnRegisterCompletedListener eventListener) {
+        mOnRegisterCompletedListener = eventListener;
     }
 }

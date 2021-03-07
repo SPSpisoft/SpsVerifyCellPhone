@@ -4,7 +4,7 @@
     <declare-styleable name="VerifyPhoneNumber">
 
 <!--        <attr name="ZTextSize" format="integer"/>-->
-        <attr name="CurrentMode" format="enum">
+        <attr name="VPMode" format="enum">
             <enum name="SetPhoneNumber" value="0"/>
             <enum name="SendingPhoneNumber" value="1"/>
             <enum name="FailPhoneNumber" value="2"/>
