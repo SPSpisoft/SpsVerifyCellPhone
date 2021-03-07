@@ -1,0 +1,3 @@
+include ':spsVerify'
+include ':app'
+rootProject.name = "SpsVerifyForm"

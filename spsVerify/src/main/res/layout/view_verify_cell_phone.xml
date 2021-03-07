@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layoutDirection="ltr"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".VerifyPhoneNumber">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/boxText"
+        android:padding="10dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        app:strokeColor="@color/sps_grey_light"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="10dp"
+        app:strokeWidth="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtDescription"
+            android:padding="5dp"
+            android:text="test"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="EllipsizeMaxLines,HardcodedText" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <RelativeLayout
+        android:id="@+id/viewBase"
+        android:layout_below="@+id/boxText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/layBack"
+            android:layout_margin="20dp"
+            app:cardCornerRadius="20dp"
+            app:rippleColor="@android:color/holo_orange_dark"
+            app:strokeColor="@android:color/darker_gray"
+            app:strokeWidth="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                android:id="@+id/lySetNumber"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/ivCountryFlag"
+                    android:layout_alignParentStart="true"
+                    app:strokeWidth="4dp"
+                    app:strokeColor="@android:color/white"
+                    app:cardBackgroundColor="@color/sps_dark_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:weightSum="10"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/ivCountryFlag_"
+                            android:layout_weight="6"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitXY" />
+
+                        <TextView
+                            android:id="@+id/tvCountry"
+                            android:layout_weight="4"
+                            android:paddingStart="5dp"
+                            android:gravity="left|center"
+                            android:textColor="@android:color/white"
+                            android:text="TEST"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"/>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toStartOf="@+id/circularButtonSend"
+                    android:layout_toEndOf="@+id/ivCountryFlag">
+
+                    <TextView
+                        android:id="@+id/tvCountryCode"
+                        android:layout_alignParentStart="true"
+                        android:paddingStart="5dp"
+                        android:text="+"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"/>
+
+                    <EditText
+                        android:id="@+id/txtPhoneNumber"
+                        android:inputType="number"
+                        android:paddingStart="5dp"
+                        android:hint="9123456789"
+                        android:gravity="left|center"
+                        android:background="@null"
+                        android:ellipsize="middle"
+                        android:textAlignment="gravity"
+                        android:layoutDirection="ltr"
+                        android:textSize="14sp"
+                        android:maxLength="11"
+                        android:digits="0123456789"
+                        android:layout_toEndOf="@+id/tvCountryCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:ignore="TextFields" />
+
+                </RelativeLayout>
+
+                <com.spisoft.sprogressbutton.CircularProgressButton
+                    android:id="@+id/circularButtonSend"
+                    android:layout_width="wrap_content"
+                    android:gravity="end"
+                    android:layout_alignParentEnd="true"
+                    android:layout_height="match_parent"
+                    android:textColor="@android:color/white"
+                    android:layout_margin="5dp"
+                    android:textSize="18sp"
+                    android:visibility="visible"
+                    app:cpb_cornerRadius="20dp"
+                    app:cpb_icon="@drawable/ic_baseline_send_24"
+                    app:cpb_iconComplete="@drawable/ic_baseline_check_24"
+                    app:cpb_iconError="@drawable/ic_baseline_refresh_24"
+                    tools:ignore="MissingConstraints" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/lyVerify"
+                android:orientation="horizontal"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!--            <com.google.android.material.card.MaterialCardView-->
+                <!--                android:id="@+id/btnBack"-->
+                <!--                android:layout_alignParentStart="true"-->
+                <!--                android:padding="3dp"-->
+                <!--                app:strokeWidth="4dp"-->
+                <!--                app:strokeColor="@android:color/white"-->
+                <!--                app:cardCornerRadius="10dp"-->
+                <!--                app:cardBackgroundColor="@android:color/holo_red_light"-->
+                <!--                android:background="@drawable/ic_baseline_arrow_back_24"-->
+                <!--                android:layout_width="wrap_content"-->
+                <!--                android:layout_height="match_parent"/>-->
+
+                <RelativeLayout
+                    android:id="@+id/btnBack"
+                    android:layout_alignParentStart="true"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:layout_centerVertical="true"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp">
+
+                    <com.spisoft.spcircleview.CircleView
+                        android:id="@+id/cv_s"
+                        app:cv_strokeColorValue="@android:color/white"
+                        app:cv_backgroundColorValue="@color/cpb_red"
+                        android:clickable="false"
+                        android:layout_centerInParent="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                    <ImageView
+                        android:id="@+id/vIcon"
+                        android:layout_centerVertical="true"
+                        android:clickable="false"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_baseline_settings_backup_restore_24"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                    <com.timqi.sectorprogressview.SectorProgressView
+                        android:id="@+id/cProgressExp"
+                        android:layout_centerInParent="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="false"
+                        app:fgColor="#85EC2B2B"
+                        app:bgColor="#6B34502B"
+                        app:fgColorEnd="#ADCD1219"
+                        app:fgColorStart="#9F0073FF"
+                        app:percent="30"
+                        app:startAngle="0"
+                        app:strokeWidth="21dp"/>
+
+                </RelativeLayout>
+
+
+                <com.spisoft.verifyedittextlibrary.VerifyEditText
+                    android:id="@+id/verifyText"
+                    android:padding="5dp"
+                    app:inputCount="6"
+                    app:defaultColor="@color/cpb_bg_case"
+                    app:underlineSpace="3.5dp"
+                    app:underlineHeight="2dp"
+                    app:inputSpace="3dp"
+                    app:focusColor="@color/cpb_blue"
+                    android:layout_toEndOf="@+id/btnBack"
+                    android:layout_toStartOf="@+id/btnSendCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <!--            <com.google.android.material.card.MaterialCardView-->
+                <!--                android:id="@+id/btnSendCode"-->
+                <!--                android:layout_alignParentEnd="true"-->
+                <!--                android:padding="4dp"-->
+                <!--                app:strokeWidth="4dp"-->
+                <!--                app:strokeColor="@android:color/white"-->
+                <!--                app:cardCornerRadius="10dp"-->
+                <!--                app:cardBackgroundColor="@android:color/holo_red_light"-->
+                <!--                android:background="@drawable/ic_baseline_send_24"-->
+                <!--                android:layout_width="wrap_content"-->
+                <!--                android:layout_height="match_parent"/>-->
+
+                <!--            <com.spisoft.sprogressbutton.CircularProgressButton-->
+                <!--                android:id="@+id/btnSendCode"-->
+                <!--                android:layout_width="wrap_content"-->
+                <!--                android:layout_alignParentEnd="true"-->
+                <!--                android:layout_height="match_parent"-->
+                <!--                android:textColor="@android:color/white"-->
+                <!--                android:layout_margin="5dp"-->
+                <!--                android:textSize="18sp"-->
+                <!--                android:visibility="visible"-->
+                <!--                app:cpb_cornerRadius="20dp"-->
+                <!--                app:cpb_icon="@drawable/ic_baseline_verified_user_24"-->
+                <!--                app:cpb_iconComplete="@drawable/ic_baseline_how_to_reg_24"-->
+                <!--                app:cpb_iconError="@drawable/ic_baseline_thumb_down_alt_24"-->
+                <!--                tools:ignore="MissingConstraints" />-->
+
+                <RelativeLayout
+                    android:id="@+id/btnSendCode"
+                    android:layout_alignParentEnd="true"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:layout_centerVertical="true"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp">
+
+                    <com.spisoft.spcircleview.CircleView
+                        android:id="@+id/cvSendCode"
+                        app:cv_strokeColorValue="@android:color/darker_gray"
+                        app:cv_backgroundColorValue="@color/cpb_green"
+                        android:clickable="false"
+                        android:layout_centerInParent="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                    <ImageView
+                        android:id="@+id/iconSendCode"
+                        android:layout_centerVertical="true"
+                        android:clickable="false"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_baseline_verified_user_24"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                    <com.timqi.sectorprogressview.ColorfulRingProgressView
+                        android:id="@+id/cProgressSendCode"
+                        android:layout_centerInParent="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="false"
+                        app:fgColor="#FFA000"
+                        app:bgColor="#155700"
+                        app:fgColorStart="#00FBC02D"
+                        app:fgColorEnd="#FBC02D"
+                        app:percent="5"
+                        app:startAngle="0"
+                        app:strokeWidth="2dp"/>
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+    </RelativeLayout>
+</RelativeLayout>

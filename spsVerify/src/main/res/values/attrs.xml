@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="VerifyPhoneNumber">
+
+<!--        <attr name="ZTextSize" format="integer"/>-->
+        <attr name="CurrentMode" format="enum">
+            <enum name="SetPhoneNumber" value="0"/>
+            <enum name="SendingPhoneNumber" value="1"/>
+            <enum name="FailPhoneNumber" value="2"/>
+            <enum name="AcceptPhoneNumber" value="3"/>
+            <enum name="SetVerifyCode" value="4"/>
+            <enum name="SendingVerifyCode" value="5"/>
+            <enum name="FailVerifyCode" value="6"/>
+            <enum name="ReSetVerifyCode" value="7"/>
+            <enum name="AccessVerifyCode" value="8"/>
+            <enum name="ExpireVerifyCode" value="9"/>
+        </attr>
+
+        <attr name="VerifyCodeLength" format="integer"/>
+        <attr name="CheckCellphone" format="boolean"/>
+        <attr name="SizeHeight" format="dimension"/>
+        <attr name="SizeWidth" format="dimension"/>
+        <attr name="SizeBtnWidth" format="dimension"/>
+        <attr name="TextPhoneSize" format="dimension"/>
+        <attr name="TextVerifySize" format="dimension"/>
+        <attr name="TextBtnSend" format="string"/>
+        <attr name="CornerRadius" format="dimension"/>
+        <attr name="CountryPickerClickable" format="boolean"/>
+        <attr name="android:textColor"/>
+        <attr name="android:textSize"/>
+        <attr name="android:layout_margin"/>
+
+        <attr name="TextMode_0" format="string"/>
+        <attr name="TextMode_1" format="string"/>
+        <attr name="TextMode_2" format="string"/>
+        <attr name="TextMode_3" format="string"/>
+        <attr name="TextMode_4" format="string"/>
+        <attr name="TextMode_5" format="string"/>
+        <attr name="TextMode_6" format="string"/>
+        <attr name="TextMode_7" format="string"/>
+        <attr name="TextMode_8" format="string"/>
+        <attr name="TextMode_9" format="string"/>
+
+    </declare-styleable>
+</resources>

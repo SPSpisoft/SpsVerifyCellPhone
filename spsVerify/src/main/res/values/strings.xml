@@ -1,0 +1,13 @@
+<resources>
+    <string name="BtnSend">Send</string>
+    <string name="text_mode_0">Send your cell phone no</string>
+    <string name="text_mode_1">"Sending.., please wait "</string>
+    <string name="text_mode_2">Submitted number could not be registered</string>
+    <string name="text_mode_3">The validation code is sent via SMS</string>
+    <string name="text_mode_4">Enter and send the SMS validation code</string>
+    <string name="text_mode_5">"Pending.., please wait "</string>
+    <string name="text_mode_6">The submitted code could not be verified</string>
+    <string name="text_mode_7">Modify the validation code and resubmit</string>
+    <string name="text_mode_8">Your registration has been confirmed</string>
+    <string name="text_mode_9">The validation code has expired</string>
+</resources>
