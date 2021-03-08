@@ -268,7 +268,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
                 if(CheckMobileNumber(vTxtPhoneNumber.getText().toString())) {
                     SetMode(1);
                     if(mSendNumberClickListener != null)
-                        mSendNumberClickListener.onEvent(vTxtPhoneNumber.getText().toString());
+                        mSendNumberClickListener.onEvent(vTxtPhoneNumber.getText().toString(), vTxtCountryCode.getText().toString());
 //                    postDelayed(new MyRunnable(4), 3000);
                 }else {
                     SetMode(2);
@@ -442,7 +442,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
     }
 
     public interface OnSendPhoneNumberListener {
-        void onEvent(String myNumber);
+        void onEvent(String myNumber, String myCountyCode);
     }
 
     public void SetOnSendPhoneNumberListener(OnSendPhoneNumberListener eventListener) {

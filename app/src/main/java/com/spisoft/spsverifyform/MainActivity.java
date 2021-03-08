@@ -18,9 +18,10 @@ public class MainActivity extends AppCompatActivity {
         verifyPhoneNumber = findViewById(R.id.verifyPhoneNumber);
         verifyPhoneNumber.SetOnSendPhoneNumberListener(new VerifyPhoneNumber.OnSendPhoneNumberListener() {
             @Override
-            public void onEvent(String myNumber) {
+            public void onEvent(String myNumber, String myCountyCode) {
                 verifyPhoneNumber.postDelayed(new MRunnable(3), 4000);
             }
+
         });
 
         verifyPhoneNumber.SetOnRegisterListener(new VerifyPhoneNumber.OnRegisterListener() {
