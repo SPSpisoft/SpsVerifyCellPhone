@@ -47,6 +47,7 @@
             android:id="@+id/layBack"
             android:layout_margin="20dp"
             app:cardCornerRadius="20dp"
+            app:cardBackgroundColor="@android:color/white"
             app:rippleColor="@android:color/holo_orange_dark"
             app:strokeColor="@android:color/darker_gray"
             app:strokeWidth="1dp"
