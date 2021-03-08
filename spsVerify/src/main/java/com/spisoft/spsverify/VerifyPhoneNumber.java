@@ -58,6 +58,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
     private boolean mCheckCellphone = true;
     private int mVerifyCodeLength;
     private OnRegisterCompletedListener mOnRegisterCompletedListener;
+    private boolean countDownTimer_finish = true;
 
     public VerifyPhoneNumber(Context context) {
         super(context);
@@ -376,12 +377,13 @@ public class VerifyPhoneNumber extends RelativeLayout {
                     }
 
                     public void onFinish() {
+                        countDownTimer_finish = true;
                         SetMode(6);
                         postDelayed(new MyRunnable(0), 3000);
                     }
 
                 }.start();
-
+                countDownTimer_finish = false;
                 break;
             case 5: //SendingVerifyCode
                 vTxtDescription.setText(mTextMode_5);
@@ -397,7 +399,8 @@ public class VerifyPhoneNumber extends RelativeLayout {
                 vVerifyText.SetEnableEditText(true);
                 vlySetNumber.setVisibility(GONE);
                 vlyVerify.setVisibility(VISIBLE);
-                postDelayed(new MyRunnable(7), 3000);
+                if(!countDownTimer_finish)
+                    postDelayed(new MyRunnable(7), 3000);
                 break;
             case 7: //SendingVerifyCode
                 vTxtDescription.setText(mTextMode_7);

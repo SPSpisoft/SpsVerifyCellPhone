@@ -13,7 +13,7 @@
             <enum name="SendingVerifyCode" value="5"/>
             <enum name="FailVerifyCode" value="6"/>
             <enum name="ReSetVerifyCode" value="7"/>
-            <enum name="AccessVerifyCode" value="8"/>
+            <enum name="SuccessVerifyCode" value="8"/>
             <enum name="ExpireVerifyCode" value="9"/>
         </attr>
 
