@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="sps_dark_back">#A1A1A1</color>
+    <color name="sps_dark_back">#00719b</color>
     <color name="sps_grey_light">#E6E6E6</color>
     <color name="cpb_grey">#ffdedede</color>
     <color name="cpb_blue">#ff0099cc</color>

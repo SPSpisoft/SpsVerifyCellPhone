@@ -222,7 +222,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
                 }
             });
 
-            vIvCountryFlag_.setOnClickListener(new OnClickListener() {
+            vIvCountryFlag.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(CurrentMode == 0)

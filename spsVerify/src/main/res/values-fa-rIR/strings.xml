@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="BtnSend">ارسال</string>
-    <string name="text_mode_0">لطفا شماره تلفن همراهتان را وارد کنید</string>
+    <string name="text_mode_0">لطفا شماره تلفن همراه خود را وارد کنید</string>
     <string name="text_mode_1">در حال ارسال، لطفا کمی صبر کنید</string>
     <string name="text_mode_2">شماره وارد شده نامعتبر است</string>
     <string name="text_mode_3">کد اعتبارسنجی به این شماره پیامک می شود</string>
