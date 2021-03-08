@@ -21,12 +21,11 @@ public class MainActivity extends AppCompatActivity {
             public void onEvent(String myNumber, String myCountyCode) {
                 verifyPhoneNumber.postDelayed(new MRunnable(3), 4000);
             }
-
         });
 
         verifyPhoneNumber.SetOnRegisterListener(new VerifyPhoneNumber.OnRegisterListener() {
             @Override
-            public void onEvent(String verifyCode) {
+            public void onEvent(String verifyCode, String myNumber, String myCC) {
                 verifyPhoneNumber.SetMode(5);
                 verifyPhoneNumber.postDelayed(new MRunnable(6), 4000);
             }

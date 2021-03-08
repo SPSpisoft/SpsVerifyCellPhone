@@ -235,7 +235,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
                 public void onClick(View v) {
                     if(vVerifyText.getContent().trim().length() == mVerifyCodeLength) {
                         if (mOnRegisterClickListener != null)
-                            mOnRegisterClickListener.onEvent(vVerifyText.getContent());
+                            mOnRegisterClickListener.onEvent(vVerifyText.getContent(), vTxtPhoneNumber.getText().toString(), vTxtCountryCode.getText().toString());
                     }else
                         SetMode(6);
                 }
@@ -450,7 +450,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
     }
 
     public interface OnRegisterListener {
-        void onEvent(String verifyCode);
+        void onEvent(String verifyCode, String myNumber, String myCountyCode);
     }
 
     public void SetOnRegisterListener(OnRegisterListener eventListener) {
