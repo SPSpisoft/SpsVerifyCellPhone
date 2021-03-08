@@ -277,8 +277,8 @@ public class VerifyPhoneNumber extends RelativeLayout {
             }
         });
 
-        SetMode(0);
-
+//        SetMode(0);
+        vTxtDescription.setText(mTextMode_0);
     }
 
     private boolean CheckMobileNumber(String cellPhoneNumber) {
