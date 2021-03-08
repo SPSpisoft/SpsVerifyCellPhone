@@ -238,7 +238,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
                         if (mOnRegisterClickListener != null)
                             mOnRegisterClickListener.onEvent(vVerifyText.getContent(), vTxtPhoneNumber.getText().toString(), vTxtCountryCode.getText().toString());
                     }else
-                        SetMode(6);
+                        SetMode(6, null);
                 }
             });
 
@@ -250,14 +250,14 @@ public class VerifyPhoneNumber extends RelativeLayout {
                                 .setAction("BACK", new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
-                                        SetMode(0);
+                                        SetMode(0, null);
                                     }
                                 })
                                 .setActionTextColor(getResources().getColor(android.R.color.holo_red_light ))
                                 .show();
                     }
                     else
-                        SetMode(0);
+                        SetMode(0, null);
                 }
             });
 
@@ -267,12 +267,12 @@ public class VerifyPhoneNumber extends RelativeLayout {
             @Override
             public void onClick(View v) {
                 if(CheckMobileNumber(vTxtPhoneNumber.getText().toString())) {
-                    SetMode(1);
+                    SetMode(1, null);
                     if(mSendNumberClickListener != null)
                         mSendNumberClickListener.onEvent(vTxtPhoneNumber.getText().toString(), vTxtCountryCode.getText().toString());
 //                    postDelayed(new MyRunnable(4), 3000);
                 }else {
-                    SetMode(2);
+                    SetMode(2, null);
 //                    postDelayed(new MyRunnable(2), 3000);
                 }
             }
@@ -299,11 +299,11 @@ public class VerifyPhoneNumber extends RelativeLayout {
 
         @Override
         public void run() {
-            SetMode(data);
+            SetMode(data, null);
         }
     }
 
-    public void SetMode(int mode) {
+    public void SetMode(int mode, String message) {
         CurrentMode = mode;
 
         vTxtPhoneNumber.setEnabled(false);
@@ -335,31 +335,31 @@ public class VerifyPhoneNumber extends RelativeLayout {
                 vlyVerify.setVisibility(GONE);
                 vTxtPhoneNumber.setEnabled(true);
                 vButtonSendMobile.setProgress(0);
-                vTxtDescription.setText(mTextMode_0);
+                vTxtDescription.setText(message != null? message : mTextMode_0);
                 break;
             case 1: //SendingPhoneNumber
                 vlySetNumber.setVisibility(VISIBLE);
                 vlyVerify.setVisibility(GONE);
                 vButtonSendMobile.setProgress(50);
-                vTxtDescription.setText(mTextMode_1);
+                vTxtDescription.setText(message != null? message : mTextMode_1);
                 break;
             case 2: //FailPhoneNumber
                 vTxtPhoneNumber.setEnabled(true);
-                vTxtDescription.setText(mTextMode_2);
+                vTxtDescription.setText(message != null? message : mTextMode_2);
                 vlySetNumber.setVisibility(VISIBLE);
                 vlyVerify.setVisibility(GONE);
                 vButtonSendMobile.setProgress(-1);
                 postDelayed(new MyRunnable(0), 4000);
                 break;
             case 3: //AcceptPhoneNumber
-                vTxtDescription.setText(mTextMode_3);
+                vTxtDescription.setText(message != null? message : mTextMode_3);
                 vlySetNumber.setVisibility(VISIBLE);
                 vlyVerify.setVisibility(GONE);
                 vButtonSendMobile.setProgress(100);
                 postDelayed(new MyRunnable(4), 2000);
                 break;
             case 4: //SetVerifyCode
-                vTxtDescription.setText(mTextMode_4);
+                vTxtDescription.setText(message != null? message : mTextMode_4);
                 vVerifyText.resetContent();
                 vProgressExp.setPercent(0);
                 vlySetNumber.setVisibility(GONE);
@@ -378,7 +378,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
 
                     public void onFinish() {
                         countDownTimer_finish = true;
-                        SetMode(6);
+                        SetMode(6, null);
                         postDelayed(new MyRunnable(0), 3000);
                     }
 
@@ -386,14 +386,14 @@ public class VerifyPhoneNumber extends RelativeLayout {
                 countDownTimer_finish = false;
                 break;
             case 5: //SendingVerifyCode
-                vTxtDescription.setText(mTextMode_5);
+                vTxtDescription.setText(message != null? message : mTextMode_5);
                 vVerifyText.SetEnableEditText(false);
                 vlySetNumber.setVisibility(GONE);
                 vlyVerify.setVisibility(VISIBLE);
                 vProgressSendCode.animateIndeterminate();
                 break;
             case 6: //FailVerifyCode
-                vTxtDescription.setText(mTextMode_6);
+                vTxtDescription.setText(message != null? message : mTextMode_6);
                 vIconSendCode.setImageResource(R.drawable.ic_baseline_thumb_down_alt_24);
                 vCvSendCode.setBackgroundColor(Color.RED);
                 vVerifyText.SetEnableEditText(true);
@@ -403,7 +403,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
                     postDelayed(new MyRunnable(7), 3000);
                 break;
             case 7: //SendingVerifyCode
-                vTxtDescription.setText(mTextMode_7);
+                vTxtDescription.setText(message != null? message : mTextMode_7);
                 vIconSendCode.setImageResource(R.drawable.ic_baseline_verified_user_24);
                 vCvSendCode.setBackgroundColor(Color.GREEN);
                 vVerifyText.SetEnableEditText(true);
@@ -411,7 +411,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
                 vlyVerify.setVisibility(VISIBLE);
                 break;
             case 8: //AccessVerifyCode
-                vTxtDescription.setText(mTextMode_8);
+                vTxtDescription.setText(message != null? message : mTextMode_8);
                 vCvSendCode.setBackgroundColor(Color.BLUE);
                 vIconSendCode.setImageResource(R.drawable.ic_baseline_how_to_reg_24);
                 vlySetNumber.setVisibility(GONE);
@@ -420,7 +420,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
                 postDelayed(setCompleted, 2000);
                 break;
             case 9: //ExpireVerifyCode
-                vTxtDescription.setText(mTextMode_9);
+                vTxtDescription.setText(message != null? message : mTextMode_9);
                 vIconSendCode.setImageResource(R.drawable.ic_baseline_thumb_down_alt_24);
                 vCvSendCode.setBackgroundColor(Color.RED);
                 vVerifyText.SetEnableEditText(false);
