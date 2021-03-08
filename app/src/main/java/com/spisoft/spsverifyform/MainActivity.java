@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         verifyPhoneNumber.SetOnRegisterListener(new VerifyPhoneNumber.OnRegisterListener() {
             @Override
             public void onEvent(String verifyCode, String myNumber, String myCC) {
-                verifyPhoneNumber.SetMode(5);
+                verifyPhoneNumber.SetMode(5, null);
                 verifyPhoneNumber.postDelayed(new MRunnable(6), 4000);
             }
         });
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void run() {
-            verifyPhoneNumber.SetMode(data);
+            verifyPhoneNumber.SetMode(data, null);
         }
     }
 }
