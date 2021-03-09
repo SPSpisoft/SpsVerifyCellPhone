@@ -9,6 +9,8 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.CountDownTimer;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -29,6 +31,8 @@ import com.spisoft.widget.countrycodepicker.CountryCodePicker;
 import com.spisoft.widget.countrycodepicker.CountryUtils;
 import com.timqi.sectorprogressview.ColorfulRingProgressView;
 import com.timqi.sectorprogressview.SectorProgressView;
+
+import static androidx.core.content.ContextCompat.getSystemService;
 
 public class VerifyPhoneNumber extends RelativeLayout {
 
@@ -59,6 +63,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
     private int mVerifyCodeLength;
     private OnRegisterCompletedListener mOnRegisterCompletedListener;
     private boolean countDownTimer_finish = true;
+    private Vibrator vibrator;
 
     public VerifyPhoneNumber(Context context) {
         super(context);
@@ -106,6 +111,8 @@ public class VerifyPhoneNumber extends RelativeLayout {
         vTxtDescription = rootView.findViewById(R.id.txtDescription);
 
         vButtonSendMobile.setIndeterminateProgressMode(true);
+
+        vibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
 
         if (attrs != null) {
             final TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.VerifyPhoneNumber, 0, 0);
@@ -230,6 +237,16 @@ public class VerifyPhoneNumber extends RelativeLayout {
                 }
             });
 
+            vVerifyText.setInputCompleteListener(new VerifyEditText.inputCompleteListener() {
+                @Override
+                public void inputComplete(VerifyEditText et, String content) {
+                    if(vVerifyText.getContent().trim().length() == mVerifyCodeLength) {
+                        if (mOnRegisterClickListener != null)
+                            mOnRegisterClickListener.onEvent(vVerifyText.getContent(), vTxtPhoneNumber.getText().toString(), vTxtCountryCode.getText().toString());
+                    }
+                }
+            });
+
             vBtnSendCode.setClickable(true);
             vBtnSendCode.setOnClickListener(new OnClickListener() {
                 @Override
@@ -344,6 +361,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
                 vTxtDescription.setText(message != null? message : mTextMode_1);
                 break;
             case 2: //FailPhoneNumber
+                vibrate();
                 vTxtPhoneNumber.setEnabled(true);
                 vTxtDescription.setText(message != null? message : mTextMode_2);
                 vlySetNumber.setVisibility(VISIBLE);
@@ -359,6 +377,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
                 postDelayed(new MyRunnable(4), 2000);
                 break;
             case 4: //SetVerifyCode
+                vibrate();
                 vTxtDescription.setText(message != null? message : mTextMode_4);
                 vVerifyText.resetContent();
                 vProgressExp.setPercent(0);
@@ -393,6 +412,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
                 vProgressSendCode.animateIndeterminate();
                 break;
             case 6: //FailVerifyCode
+                vibrate();
                 vTxtDescription.setText(message != null? message : mTextMode_6);
                 vIconSendCode.setImageResource(R.drawable.ic_baseline_thumb_down_alt_24);
                 vCvSendCode.setBackgroundColor(Color.RED);
@@ -403,6 +423,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
                     postDelayed(new MyRunnable(7), 3000);
                 break;
             case 7: //SendingVerifyCode
+                vibrate();
                 vTxtDescription.setText(message != null? message : mTextMode_7);
                 vIconSendCode.setImageResource(R.drawable.ic_baseline_verified_user_24);
                 vCvSendCode.setBackgroundColor(Color.GREEN);
@@ -420,6 +441,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
                 postDelayed(setCompleted, 2000);
                 break;
             case 9: //ExpireVerifyCode
+                vibrate();
                 vTxtDescription.setText(message != null? message : mTextMode_9);
                 vIconSendCode.setImageResource(R.drawable.ic_baseline_thumb_down_alt_24);
                 vCvSendCode.setBackgroundColor(Color.RED);
@@ -432,10 +454,19 @@ public class VerifyPhoneNumber extends RelativeLayout {
         }
     }
 
+    private void vibrate(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            vibrator.vibrate(VibrationEffect.createOneShot(100, VibrationEffect.DEFAULT_AMPLITUDE));
+        } else {
+            vibrator.vibrate(100);
+        }
+    }
+
     private final Runnable setCompleted = new Runnable() {
         @Override
         public void run() {
             if(mOnRegisterCompletedListener != null) mOnRegisterCompletedListener.onEvent();
+
         }
     };
 
