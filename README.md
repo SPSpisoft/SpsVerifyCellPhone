@@ -12,5 +12,5 @@
   
   
   	dependencies {
-	        implementation 'com.github.SPSpisoft:SpsVerifyForm:tag'
+	        implementation 'com.github.SPSpisoft:SpsVerifyCellPhone:tag'
 	}
