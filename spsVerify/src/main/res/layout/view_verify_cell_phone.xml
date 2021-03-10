@@ -207,7 +207,6 @@
                         app:bgColor="#6B34502B"
                         app:fgColorEnd="#ADCD1219"
                         app:fgColorStart="#9F0073FF"
-                        app:percent="30"
                         app:startAngle="0"
                         app:strokeWidth="21dp"/>
 

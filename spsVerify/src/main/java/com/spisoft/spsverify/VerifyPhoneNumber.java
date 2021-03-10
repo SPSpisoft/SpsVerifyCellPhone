@@ -64,6 +64,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
     private OnRegisterCompletedListener mOnRegisterCompletedListener;
     private boolean countDownTimer_finish = true;
     private Vibrator vibrator;
+    private ImageView vIcon;
 
     public VerifyPhoneNumber(Context context) {
         super(context);
@@ -109,6 +110,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
         vCvSendCode = rootView.findViewById(R.id.cvSendCode);
         vBoxText = rootView.findViewById(R.id.boxText);
         vTxtDescription = rootView.findViewById(R.id.txtDescription);
+        vIcon = rootView.findViewById(R.id.vIcon);
 
         vButtonSendMobile.setIndeterminateProgressMode(true);
 
@@ -387,17 +389,25 @@ public class VerifyPhoneNumber extends RelativeLayout {
 
                 vProgressExp.stopAnimateIndeterminate();
                 if(countDownTimer != null) countDownTimer.cancel();
-                if(mVerifyTime == 0) mVerifyTime = 120;
+                if(mVerifyTime == 0)
+                    mVerifyTime = 120;
                 int FullTime = mVerifyTime * 1000;
-                countDownTimer = new CountDownTimer(FullTime, 500) {
+                countDownTimer = new CountDownTimer(FullTime, 1000) {
 
                     public void onTick(long millisUntilFinished) {
-                        vProgressExp.setPercent((FullTime - millisUntilFinished) / 1000);
+                        vProgressExp.setPercent((((FullTime - millisUntilFinished)*100)/FullTime));
+
+                        if(millisUntilFinished < ((10*FullTime)/100)){
+                            YoYo.with(Techniques.Flash)
+                                    .duration(200)
+                                    .repeat(0)
+                                    .playOn(vIcon);
+                        }
                     }
 
                     public void onFinish() {
                         countDownTimer_finish = true;
-                        SetMode(6, null);
+                        SetMode(9, null);
                         postDelayed(new MyRunnable(0), 3000);
                     }
 
