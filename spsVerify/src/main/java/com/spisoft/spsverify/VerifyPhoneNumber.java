@@ -1,8 +1,7 @@
 package com.spisoft.spsverify;
 
-import androidx.annotation.RequiresApi;
-
 import android.animation.Animator;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.TypedArray;
@@ -56,7 +55,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
     private CircleView vCvSendCode;
     private int mVerifyTime;
     private TextView vTxtDescription;
-    private String mTextMode_0, mTextMode_1, mTextMode_2, mTextMode_3, mTextMode_4, mTextMode_5, mTextMode_6, mTextMode_7, mTextMode_8, mTextMode_9;
+    private String mTextMode_0, mTextMode_1, mTextMode_2, mTextMode_3, mTextMode_4, mTextMode_5, mTextMode_6, mTextMode_7, mTextMode_8, mTextMode_9, mTextMode_10;
     private OnSendPhoneNumberListener mSendNumberClickListener;
     private OnRegisterListener mOnRegisterClickListener;
     private boolean mCheckCellphone = true;
@@ -81,7 +80,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
         init(context, attrs);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public VerifyPhoneNumber(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
@@ -209,6 +208,9 @@ public class VerifyPhoneNumber extends RelativeLayout {
 
             mTextMode_9 = typedArray.getString(R.styleable.VerifyPhoneNumber_TextMode_9);
             if(mTextMode_9 == null) mTextMode_9 = mContext.getResources().getString(R.string.text_mode_9);
+
+            mTextMode_10 = typedArray.getString(R.styleable.VerifyPhoneNumber_TextMode_10);
+            if(mTextMode_10 == null) mTextMode_10 = mContext.getResources().getString(R.string.text_mode_10);
 
             final CountryCodePicker countryCodePicker = new CountryCodePicker(mContext);
             final CountryCodeDialog countryCodeDialog = new CountryCodeDialog(countryCodePicker);
@@ -352,9 +354,10 @@ public class VerifyPhoneNumber extends RelativeLayout {
             case 0: //SetPhoneNumber
                 vlySetNumber.setVisibility(VISIBLE);
                 vlyVerify.setVisibility(GONE);
-                vTxtPhoneNumber.setEnabled(true);
                 vButtonSendMobile.setProgress(0);
                 vTxtDescription.setText(message != null? message : mTextMode_0);
+                if(vTxtPhoneNumber != null)
+                    vTxtPhoneNumber.setEnabled(true);
                 break;
             case 1: //SendingPhoneNumber
                 vlySetNumber.setVisibility(VISIBLE);
@@ -395,14 +398,16 @@ public class VerifyPhoneNumber extends RelativeLayout {
                 countDownTimer = new CountDownTimer(FullTime, 1000) {
 
                     public void onTick(long millisUntilFinished) {
-                        vProgressExp.setPercent((((FullTime - millisUntilFinished)*100)/FullTime));
+//                        if(millisUntilFinished < FullTime) {
+                            vProgressExp.setPercent((((FullTime - millisUntilFinished) * 100) / FullTime));
 
-                        if(millisUntilFinished < ((10*FullTime)/100)){
-                            YoYo.with(Techniques.Flash)
-                                    .duration(200)
-                                    .repeat(0)
-                                    .playOn(vIcon);
-                        }
+                            if (millisUntilFinished < ((10 * FullTime) / 100)) {
+                                YoYo.with(Techniques.Flash)
+                                        .duration(200)
+                                        .repeat(0)
+                                        .playOn(vIcon);
+                            }
+//                        }
                     }
 
                     public void onFinish() {
@@ -432,7 +437,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
                 if(!countDownTimer_finish)
                     postDelayed(new MyRunnable(7), 3000);
                 break;
-            case 7: //SendingVerifyCode
+            case 7: //ReSendingVerifyCode
                 vibrate();
                 vTxtDescription.setText(message != null? message : mTextMode_7);
                 vIconSendCode.setImageResource(R.drawable.ic_baseline_verified_user_24);
@@ -461,6 +466,17 @@ public class VerifyPhoneNumber extends RelativeLayout {
                 vlyVerify.setVisibility(VISIBLE);
                 postDelayed(new MyRunnable(0), 2000);
                 break;
+            case 10: //CanceledVerifyCode
+                vibrate();
+                vTxtDescription.setText(message != null? message : mTextMode_10);
+                vIconSendCode.setImageResource(R.drawable.ic_baseline_thumb_down_alt_24);
+                vCvSendCode.setBackgroundColor(Color.RED);
+                vVerifyText.SetEnableEditText(false);
+                vVerifyText.resetContent();
+                vlySetNumber.setVisibility(GONE);
+                vlyVerify.setVisibility(VISIBLE);
+                postDelayed(new MyRunnable(0), 2000);
+                break;
         }
     }
 
@@ -475,8 +491,8 @@ public class VerifyPhoneNumber extends RelativeLayout {
     private final Runnable setCompleted = new Runnable() {
         @Override
         public void run() {
-            if(mOnRegisterCompletedListener != null) mOnRegisterCompletedListener.onEvent();
-
+            if(mOnRegisterCompletedListener != null)
+                mOnRegisterCompletedListener.onEvent();
         }
     };
 

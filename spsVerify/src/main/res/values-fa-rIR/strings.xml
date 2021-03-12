@@ -11,4 +11,5 @@
     <string name="text_mode_7">کد اعتبارسنجی را اصلاح و دوباره ارسال کنید</string>
     <string name="text_mode_8">تایید شد</string>
     <string name="text_mode_9">زمان ارسال کد اعتبارسنجی منقضی شد</string>
+    <string name="text_mode_10">اعتبارسنجی ابطال شد</string>
 </resources>

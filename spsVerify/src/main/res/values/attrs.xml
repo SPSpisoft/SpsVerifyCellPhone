@@ -41,6 +41,7 @@
         <attr name="TextMode_7" format="string"/>
         <attr name="TextMode_8" format="string"/>
         <attr name="TextMode_9" format="string"/>
+        <attr name="TextMode_10" format="string"/>
 
     </declare-styleable>
 </resources>

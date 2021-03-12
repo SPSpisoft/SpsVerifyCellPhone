@@ -10,4 +10,5 @@
     <string name="text_mode_7">Modify the validation code and resubmit</string>
     <string name="text_mode_8">Your registration has been confirmed</string>
     <string name="text_mode_9">The validation code has expired</string>
+    <string name="text_mode_10">The validation canceled</string>
 </resources>
