@@ -385,6 +385,8 @@ public class VerifyPhoneNumber extends RelativeLayout {
                 vibrate();
                 vTxtDescription.setText(message != null? message : mTextMode_4);
                 vVerifyText.resetContent();
+                vIconSendCode.setImageResource(R.drawable.ic_baseline_verified_user_24);
+                vCvSendCode.setBackgroundColor(Color.BLUE);
                 vProgressExp.setPercent(0);
                 vlySetNumber.setVisibility(GONE);
                 vlyVerify.setVisibility(VISIBLE);
