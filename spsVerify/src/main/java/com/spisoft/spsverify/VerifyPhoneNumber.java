@@ -158,6 +158,8 @@ public class VerifyPhoneNumber extends RelativeLayout {
             vTxtCountry.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextPhoneSize/2);
             vTxtPhoneNumber.setHintTextColor(getResources().getColor(R.color.sps_grey_light));
 
+            vTxtPhoneNumber.setTextColor(getResources().getColor(R.color.sps_grey_dark));
+
             float mTextVerifySize = typedArray.getDimensionPixelSize(R.styleable.VerifyPhoneNumber_TextVerifySize, 0);
             if(mTextVerifySize == 0) mTextVerifySize = atHeight * 15;
             vVerifyText.setTextSize(mTextVerifySize);
