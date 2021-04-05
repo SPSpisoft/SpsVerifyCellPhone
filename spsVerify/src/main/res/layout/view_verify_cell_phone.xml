@@ -72,17 +72,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent">
 
-                    <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
-                        android:id="@+id/ivCountryFlag_"
-                        android:background="@android:color/transparent"
-                        app:shape_mode="round_rect"
-                        android:layout_weight="10"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="fitXY" />
-
                     <LinearLayout
                         android:orientation="horizontal"
+                        android:layoutDirection="ltr"
                         android:weightSum="10"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
@@ -95,6 +87,15 @@
                             android:textColor="@android:color/white"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"/>
+
+                        <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
+                            android:id="@+id/ivCountryFlag_"
+                            android:background="@android:color/white"
+                            app:shape_mode="round_rect"
+                            android:layout_weight="6"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitXY" />
 
                     </LinearLayout>
 
