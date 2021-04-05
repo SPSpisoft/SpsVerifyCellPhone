@@ -10,6 +10,8 @@ import android.os.Build;
 import android.os.CountDownTimer;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -66,6 +68,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
     private boolean countDownTimer_finish = true;
     private Vibrator vibrator;
     private ImageView vIcon;
+    private OnChangePhoneNumberListener mOnChangePhoneNumberListener;
 
     public VerifyPhoneNumber(Context context) {
         super(context);
@@ -162,6 +165,23 @@ public class VerifyPhoneNumber extends RelativeLayout {
             vTxtPhoneNumber.setHintTextColor(getResources().getColor(R.color.sps_grey_light));
 
             vTxtPhoneNumber.setTextColor(getResources().getColor(R.color.sps_grey_dark));
+            vTxtPhoneNumber.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    if(mOnChangePhoneNumberListener != null)
+                        mOnChangePhoneNumberListener.onEvent(vTxtPhoneNumber.getText(), count);
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
 
             float mTextVerifySize = typedArray.getDimensionPixelSize(R.styleable.VerifyPhoneNumber_TextVerifySize, 0);
             if(mTextVerifySize == 0) mTextVerifySize = atHeight * 15;
@@ -508,6 +528,11 @@ public class VerifyPhoneNumber extends RelativeLayout {
         return this;
     }
 
+    public VerifyPhoneNumber setVerifyCodeColor(int verifyCodeColor){
+        vVerifyText.SetTextColor(verifyCodeColor);
+        return this;
+    }
+
     public interface OnSendPhoneNumberListener {
         void onEvent(String myNumber, String myCountyCode);
     }
@@ -530,5 +555,13 @@ public class VerifyPhoneNumber extends RelativeLayout {
 
     public void SetOnRegisterCompletedListener(OnRegisterCompletedListener eventListener) {
         mOnRegisterCompletedListener = eventListener;
+    }
+
+    public interface OnChangePhoneNumberListener {
+        void onEvent(Editable text, int count);
+    }
+
+    public void SetOnChangePhoneNumberListener(OnChangePhoneNumberListener eventListener) {
+        mOnChangePhoneNumberListener = eventListener;
     }
 }
