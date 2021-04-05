@@ -56,7 +56,6 @@
 
             <RelativeLayout
                 android:id="@+id/lySetNumber"
-                android:background="@android:color/white"
                 android:orientation="horizontal"
                 android:visibility="visible"
                 android:layout_width="match_parent"
