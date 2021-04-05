@@ -27,7 +27,7 @@
         <attr name="TextBtnSend" format="string"/>
         <attr name="CornerRadius" format="dimension"/>
         <attr name="CountryPickerClickable" format="boolean"/>
-        <attr name="flagBackColor" format="color"/>
+        <attr name="BackColor" format="color"/>
         <attr name="android:textColor"/>
         <attr name="android:colorBackground"/>
         <attr name="android:textSize"/>

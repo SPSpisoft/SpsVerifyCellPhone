@@ -46,6 +46,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/layBack"
             android:layout_margin="20dp"
+            android:background="@android:color/black"
             app:cardCornerRadius="20dp"
             app:cardBackgroundColor="@android:color/white"
             app:rippleColor="@android:color/holo_orange_dark"
@@ -72,30 +73,31 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent">
 
+                    <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
+                        android:id="@+id/ivCountryFlag_"
+                        android:background="@android:color/white"
+                        app:shape_mode="round_rect"
+                        android:layout_weight="10"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY" />
+
                     <LinearLayout
                         android:orientation="horizontal"
-                        android:layoutDirection="ltr"
+                        android:visibility="gone"
                         android:weightSum="10"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
                         <TextView
                             android:id="@+id/tvCountry"
+                            android:visibility="gone"
                             android:layout_weight="4"
                             android:paddingStart="2dp"
                             android:gravity="center"
                             android:textColor="@android:color/white"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"/>
-
-                        <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
-                            android:id="@+id/ivCountryFlag_"
-                            android:background="@android:color/white"
-                            app:shape_mode="round_rect"
-                            android:layout_weight="6"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="fitXY" />
 
                     </LinearLayout>
 

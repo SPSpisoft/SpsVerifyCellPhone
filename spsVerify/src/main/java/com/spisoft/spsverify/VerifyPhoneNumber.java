@@ -157,6 +157,8 @@ public class VerifyPhoneNumber extends RelativeLayout {
 //            vBtnSendCode.setRadius(mCornerRadius);
 //            vBtnBack.setRadius(mCornerRadius);
 
+            vLayBackground.setBackgroundColor(typedArray.getColor(R.styleable.VerifyPhoneNumber_BackColor, Color.WHITE));
+
             int mTextPhoneSize = typedArray.getDimensionPixelSize(R.styleable.VerifyPhoneNumber_TextPhoneSize, 0);
             if(mTextPhoneSize == 0) mTextPhoneSize = atHeight/3;
             vTxtPhoneNumber.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextPhoneSize);
