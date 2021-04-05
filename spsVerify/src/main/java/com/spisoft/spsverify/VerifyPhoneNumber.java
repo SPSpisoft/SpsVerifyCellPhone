@@ -31,6 +31,8 @@ import com.spisoft.widget.countrycodepicker.CountryUtils;
 import com.timqi.sectorprogressview.ColorfulRingProgressView;
 import com.timqi.sectorprogressview.SectorProgressView;
 
+import cn.gavinliu.android.lib.shapedimageview.ShapedImageView;
+
 import static androidx.core.content.ContextCompat.getSystemService;
 
 public class VerifyPhoneNumber extends RelativeLayout {
@@ -42,7 +44,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
     private TextView vTxtCountryCode, vTxtCountry;
     private CircularProgressButton vButtonSendMobile;
     private MaterialCardView vIvCountryFlag, vBoxText;
-    private ImageView vIvCountryFlag_;
+    private ShapedImageView vIvCountryFlag_;
     private VerifyEditText vVerifyText;
     private String CodeCostText = "";
     private View ViewBase;
@@ -147,6 +149,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
             float mCornerRadius = typedArray.getDimensionPixelSize(R.styleable.VerifyPhoneNumber_CornerRadius, (atHeight-40)/2);
             vLayBackground.setRadius(mCornerRadius);
             vIvCountryFlag.setRadius(mCornerRadius);
+            vIvCountryFlag_.setShapeRadius(mCornerRadius);
             vButtonSendMobile.setRadius(mCornerRadius);
 //            vBtnSendCode.setRadius(mCornerRadius);
 //            vBtnBack.setRadius(mCornerRadius);

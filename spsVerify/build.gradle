@@ -42,11 +42,14 @@ dependencies {
     implementation 'com.github.SPSpisoft:SpsProgressButton:1.0.2'
 //    implementation 'com.github.joielechong:countrycodepicker:2.4.2'
 //    implementation 'com.github.midorikocak:currency-picker-android:1.2.1'
-    implementation 'com.github.SPSpisoft:VerifyEditText:2.1.0'
+    implementation 'com.github.SPSpisoft:VerifyEditText:2.2.0'
     implementation 'com.github.SPSpisoft:CountryCodePicker:3.0.1'
     implementation 'com.github.SPSpisoft:SpsCircleView-master:1.0.1'
     implementation 'com.timqi.sectorprogressview:library:2.0.1'
 
     implementation 'com.daimajia.easing:library:2.4@aar'
     implementation 'com.daimajia.androidanimations:library:2.3@aar'
+
+    implementation 'cn.gavinliu:ShapedImageView:0.8.7'
+
 }
