@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         verifyPhoneNumber = findViewById(R.id.verifyPhoneNumber);
         verifyPhoneNumber.setVerifyTime(100);
+        verifyPhoneNumber.setPaddingLR(20);
         verifyPhoneNumber.SetOnSendPhoneNumberListener(new VerifyPhoneNumber.OnSendPhoneNumberListener() {
             @Override
             public void onEvent(String myNumber, String myCountyCode) {

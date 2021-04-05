@@ -529,6 +529,11 @@ public class VerifyPhoneNumber extends RelativeLayout {
         }
     };
 
+    public VerifyPhoneNumber setPaddingLR(int paddingLR){
+        vlySetNumber.setPadding(paddingLR, vlySetNumber.getPaddingTop(), paddingLR, vlySetNumber.getPaddingBottom());
+        return this;
+    }
+
     public VerifyPhoneNumber setVerifyTime(int verifyTimeSecond){
         this.mVerifyTime = verifyTimeSecond;
         return this;

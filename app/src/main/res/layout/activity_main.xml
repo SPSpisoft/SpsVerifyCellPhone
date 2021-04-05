@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_centerInParent="true"
         app:SizeHeight="@dimen/sps_lpr_sz_60"
-        app:flagBackColor="@android:color/holo_red_dark"
         app:TextPhoneSize="22sp"
         android:layout_height="wrap_content"/>
 
