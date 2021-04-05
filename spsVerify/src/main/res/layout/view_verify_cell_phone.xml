@@ -74,7 +74,7 @@
 
                     <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
                         android:id="@+id/ivCountryFlag_"
-                        android:background="@android:color/white"
+                        android:background="@android:color/transparent"
                         app:shape_mode="round_rect"
                         android:layout_weight="10"
                         android:layout_width="match_parent"
@@ -83,14 +83,12 @@
 
                     <LinearLayout
                         android:orientation="horizontal"
-                        android:visibility="gone"
                         android:weightSum="10"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
                         <TextView
                             android:id="@+id/tvCountry"
-                            android:visibility="gone"
                             android:layout_weight="4"
                             android:paddingStart="2dp"
                             android:gravity="center"
