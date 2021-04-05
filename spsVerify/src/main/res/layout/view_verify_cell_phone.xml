@@ -46,7 +46,6 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/layBack"
             android:layout_margin="20dp"
-            android:background="@android:color/black"
             app:cardCornerRadius="20dp"
             app:cardBackgroundColor="@android:color/white"
             app:rippleColor="@android:color/holo_orange_dark"
