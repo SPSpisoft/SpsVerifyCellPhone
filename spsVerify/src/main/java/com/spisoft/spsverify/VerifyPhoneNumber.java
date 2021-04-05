@@ -125,7 +125,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
 
             int atHeight = (int) typedArray.getDimension(R.styleable.VerifyPhoneNumber_SizeHeight, 140);
             int atWidth = (int) typedArray.getDimension(R.styleable.VerifyPhoneNumber_SizeWidth, 0);
-            int atBtnWidth = (int) typedArray.getDimension(R.styleable.VerifyPhoneNumber_SizeBtnWidth, atHeight);
+            int atBtnWidth = (int) typedArray.getDimension(R.styleable.VerifyPhoneNumber_SizeBtnWidth, atHeight*2/3);
             RelativeLayout.LayoutParams paramsMain = (RelativeLayout.LayoutParams) ViewBase.getLayoutParams();
             paramsMain.height = atHeight;
             if(atWidth > 0) paramsMain.width = atWidth;

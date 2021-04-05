@@ -54,7 +54,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
             <RelativeLayout
                 android:id="@+id/lySetNumber"
                 android:background="@android:color/white"
@@ -74,29 +73,31 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent">
 
+                    <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
+                        android:id="@+id/ivCountryFlag_"
+                        android:background="@android:color/white"
+                        app:shape_mode="round_rect"
+                        android:layout_weight="10"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY" />
+
                     <LinearLayout
                         android:orientation="horizontal"
+                        android:visibility="gone"
                         android:weightSum="10"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
                         <TextView
                             android:id="@+id/tvCountry"
+                            android:visibility="gone"
                             android:layout_weight="4"
                             android:paddingStart="2dp"
                             android:gravity="center"
                             android:textColor="@android:color/white"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"/>
-
-                        <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
-                            android:id="@+id/ivCountryFlag_"
-                            android:background="@android:color/white"
-                            app:shape_mode="round_rect"
-                            android:layout_weight="6"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:scaleType="fitXY" />
 
                     </LinearLayout>
 
@@ -144,7 +145,11 @@
                     android:layout_alignParentEnd="true"
                     android:layout_height="match_parent"
                     android:textColor="@android:color/white"
-                    android:layout_margin="5dp"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
                     android:textSize="18sp"
                     android:visibility="visible"
                     app:cpb_cornerRadius="20dp"
