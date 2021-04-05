@@ -156,7 +156,6 @@ public class VerifyPhoneNumber extends RelativeLayout {
             vButtonSendMobile.setRadius(mCornerRadius);
 //            vBtnSendCode.setRadius(mCornerRadius);
 //            vBtnBack.setRadius(mCornerRadius);
-            vIvCountryFlag_.setBackgroundColor(typedArray.getColor(R.styleable.VerifyPhoneNumber_android_colorBackground, Color.WHITE));
 
             int mTextPhoneSize = typedArray.getDimensionPixelSize(R.styleable.VerifyPhoneNumber_TextPhoneSize, 0);
             if(mTextPhoneSize == 0) mTextPhoneSize = atHeight/3;
@@ -243,6 +242,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
             String locale = context.getResources().getConfiguration().locale.getCountry();
             countryCodePicker.setDefaultCountryUsingNameCodeAndApply(locale);
             vIvCountryFlag_.setImageResource(CountryUtils.getFlagDrawableResId(countryCodePicker.getmSelectedCountry()));
+//            vIvCountryFlag_.setBackgroundColor(typedArray.getColor(R.styleable.VerifyPhoneNumber_flagBackColor, Color.BLUE));
             vTxtCountryCode.setText(countryCodePicker.getSelectedCountryCodeWithPlus());
             vTxtCountry.setText(countryCodePicker.getSelectedCountryNameCode());
             CodeCostText = countryCodePicker.getSelectedCountryCodeWithPlus();
