@@ -313,19 +313,21 @@ public class VerifyPhoneNumber extends RelativeLayout {
             @Override
             public void onClick(View v) {
                 if(CheckMobileNumber(vTxtPhoneNumber.getText().toString())) {
-                    SetMode(1, null);
-                    if(mSendNumberClickListener != null)
-                        mSendNumberClickListener.onEvent(vTxtPhoneNumber.getText().toString(), vTxtCountryCode.getText().toString());
-//                    postDelayed(new MyRunnable(4), 3000);
+                    SendPhoneNumber();
                 }else {
                     SetMode(2, null);
-//                    postDelayed(new MyRunnable(2), 3000);
                 }
             }
         });
 
 //        SetMode(0);
         vTxtDescription.setText(mTextMode_0);
+    }
+
+    public void SendPhoneNumber() {
+        SetMode(1, null);
+        if(mSendNumberClickListener != null)
+            mSendNumberClickListener.onEvent(vTxtPhoneNumber.getText().toString(), vTxtCountryCode.getText().toString());
     }
 
     private boolean CheckMobileNumber(String cellPhoneNumber) {
