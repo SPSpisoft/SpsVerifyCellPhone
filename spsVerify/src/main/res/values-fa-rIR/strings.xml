@@ -7,8 +7,8 @@
     <string name="text_mode_3">کد اعتبارسنجی به این شماره پیامک می شود</string>
     <string name="text_mode_4">کد اعتبارسنجی پیامک شده را درج و ارسال نمایید</string>
     <string name="text_mode_5">در حال بررسی، لطفا کمی صبر کنید</string>
-    <string name="text_mode_6">کد درج شده نامعتبر است</string>
-    <string name="text_mode_7">کد اعتبارسنجی را اصلاح و دوباره ارسال کنید</string>
+    <string name="text_mode_6">کد ارسال شده صحیح نیست</string>
+    <string name="text_mode_7">کد اعتبارسنجی را اصلاح و مجدد ارسال نمایید</string>
     <string name="text_mode_8">تایید شد</string>
     <string name="text_mode_9">زمان ارسال کد اعتبارسنجی منقضی شد</string>
     <string name="text_mode_10">اعتبارسنجی ابطال شد</string>

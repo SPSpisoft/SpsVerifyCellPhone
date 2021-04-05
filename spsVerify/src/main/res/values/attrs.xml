@@ -28,6 +28,7 @@
         <attr name="CornerRadius" format="dimension"/>
         <attr name="CountryPickerClickable" format="boolean"/>
         <attr name="android:textColor"/>
+        <attr name="android:colorBackground"/>
         <attr name="android:textSize"/>
         <attr name="android:layout_margin"/>
 

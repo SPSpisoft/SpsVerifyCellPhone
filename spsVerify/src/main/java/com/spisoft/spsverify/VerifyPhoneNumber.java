@@ -125,7 +125,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
 
             int atHeight = (int) typedArray.getDimension(R.styleable.VerifyPhoneNumber_SizeHeight, 140);
             int atWidth = (int) typedArray.getDimension(R.styleable.VerifyPhoneNumber_SizeWidth, 0);
-            int atBtnWidth = (int) typedArray.getDimension(R.styleable.VerifyPhoneNumber_SizeBtnWidth, atHeight*2/3);
+            int atBtnWidth = (int) typedArray.getDimension(R.styleable.VerifyPhoneNumber_SizeBtnWidth, atHeight*5/6);
             RelativeLayout.LayoutParams paramsMain = (RelativeLayout.LayoutParams) ViewBase.getLayoutParams();
             paramsMain.height = atHeight;
             if(atWidth > 0) paramsMain.width = atWidth;
@@ -156,6 +156,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
             vButtonSendMobile.setRadius(mCornerRadius);
 //            vBtnSendCode.setRadius(mCornerRadius);
 //            vBtnBack.setRadius(mCornerRadius);
+            vIvCountryFlag_.setBackgroundColor(typedArray.getColor(R.styleable.VerifyPhoneNumber_android_colorBackground, Color.WHITE));
 
             int mTextPhoneSize = typedArray.getDimensionPixelSize(R.styleable.VerifyPhoneNumber_TextPhoneSize, 0);
             if(mTextPhoneSize == 0) mTextPhoneSize = atHeight/3;
