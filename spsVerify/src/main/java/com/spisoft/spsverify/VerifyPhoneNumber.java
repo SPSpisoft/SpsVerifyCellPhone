@@ -174,7 +174,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     if(mOnChangePhoneNumberListener != null)
-                        mOnChangePhoneNumberListener.onEvent(vTxtPhoneNumber.getText(), count);
+                        mOnChangePhoneNumberListener.onEvent(vTxtCountry.getText().toString(), vTxtPhoneNumber.getText().toString(), count);
                 }
 
                 @Override
@@ -558,7 +558,7 @@ public class VerifyPhoneNumber extends RelativeLayout {
     }
 
     public interface OnChangePhoneNumberListener {
-        void onEvent(Editable text, int count);
+        void onEvent(String countryCode, String text, int count);
     }
 
     public void SetOnChangePhoneNumberListener(OnChangePhoneNumberListener eventListener) {
